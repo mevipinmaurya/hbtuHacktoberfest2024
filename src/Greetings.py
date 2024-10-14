@@ -38,6 +38,23 @@ def greet_user(username, lang="en", timezone="Asia/Kolkata"):
     log_greeting(username, greeting)
 
 
+# Calling the function multiple times
+# add_greeting()  Output: ['Hello!']
+# add_greeting()  Output: ['Hello!', 'Hello!'] -> list continues to grow
+# add_greeting()  Output: ['Hello!', 'Hello!', 'Hello!']
+
+def add_greeting(usernames=[], new_greeting="Hello!"):  # Intentional mutable default issue
+    usernames.append(new_greeting)
+    print(f"Usernames: {usernames}")
+
+
+def add_greeting_fixed(usernames=None, new_greeting="Hello!"):  # Correct approach
+    if usernames is None:
+        usernames = []
+    usernames.append(new_greeting)
+    print(f"Usernames: {usernames}")
+
+
 def change_language():
     print("\nWhich language do you prefer?")
     print("1. English")
@@ -69,7 +86,8 @@ def display_menu(username, lang, timezone):
         print("1. Get Greeting")
         print("2. Change Language (English/Hindi)")
         print("3. Change Time Zone")
-        print("4. Quit")
+        print("4. Add Greeting with Mutable Default Argument")
+        print("5. Quit")
         choice = input("What would you like to do? ")
 
         if choice == "1":
@@ -79,6 +97,15 @@ def display_menu(username, lang, timezone):
         elif choice == "3":
             timezone = change_timezone()
         elif choice == "4":
+            # Demonstrating the mutable default issue
+            print("\nDemonstrating mutable default issue:")
+            add_greeting()
+            add_greeting()
+
+            print("\nDemonstrating fixed version:")
+            add_greeting_fixed()
+            add_greeting_fixed()
+        elif choice == "5":
             print("See you later!")
             break
         else:
