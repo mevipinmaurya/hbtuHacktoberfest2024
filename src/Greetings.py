@@ -2,13 +2,13 @@ from datetime import datetime
 import pytz
 
 # Creating some greetings based on different languages
-greetings = {
+greetings = {    # this defines the greetings in english 
     "en": {
         "morning": "Good morning",
         "afternoon": "Good afternoon",
         "evening": "Good evening",
     },
-    "hi": {
+    "hi": {   # this defines the greetings in hindi 
         "morning": "सुप्रभात",
         "afternoon": "नमस्ते",
         "evening": "शुभ संध्या",
@@ -55,7 +55,7 @@ def add_greeting_fixed(usernames=None, new_greeting="Hello!"):  # Correct approa
     print(f"Usernames: {usernames}")
 
 
-def change_language():
+def change_language(): # defines the process to get user input on language type 
     print("\nWhich language do you prefer?")
     print("1. English")
     print("2. Hindi")
@@ -70,7 +70,7 @@ def change_language():
         return "en"
 
 
-def change_timezone():
+def change_timezone(): # defines the process for getting user input for time zone to determine which greeting to use 
     timezone = input("What’s your timezone? (like Asia/Kolkata, Europe/London): ")
     try:
         pytz.timezone(timezone)  # Check if the timezone is valid
@@ -119,7 +119,7 @@ def main():
     lang = "en"
     timezone = "Asia/Kolkata"
 
-    display_menu(username, lang, timezone)
+    display_menu(username, lang, timezone) # this defines what should be displayed as the final greeting 
 
 
 if __name__ == "__main__":
