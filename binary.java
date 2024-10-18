@@ -12,7 +12,7 @@ public class BinarySearch {
             if (arr[mid] == target) {
                 return mid;
             }
-
+ /// bahut
             // If target is greater, ignore the left half
             if (arr[mid] < target) {
                 left = mid + 1;
