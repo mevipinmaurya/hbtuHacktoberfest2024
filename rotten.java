@@ -12,7 +12,7 @@ class RottenOranges {
             this.col = col;
             this.time = time;
         }
-    }
+    } //s dsf
 
     public static int orangesRotting(int[][] grid) {
         if (grid == null || grid.length == 0) return -1;
