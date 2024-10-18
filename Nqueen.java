@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-
+// redad
 public class NQueens {
 
     // Function to solve the N-Queens problem
