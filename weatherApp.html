@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather Information</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        header h1 {
+            font-size: 2.5em;
+        }
+        .search-container {
+            margin: 20px 0;
+        }
+        .search-container input {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            transition: border-color 0.3s;
+        }
+        .search-container input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        .weather-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .weather-card h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .weather-card p {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Weather Information</h1>
+</header>
+
+<div class="search-container">
+    <input type="text" placeholder="Enter city name..." />
+</div>
+
+<div class="weather-card">
+    <h2>City Name</h2>
+    <p>Temperature: 25°C</p>
+    <p>Condition: Sunny</p>
+    <p>Humidity: 60%</p>
+    <p>Wind Speed: 10 km/h</p>
+</div>
+
+<footer>
+    <p>&copy; 2024 Weather App. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
