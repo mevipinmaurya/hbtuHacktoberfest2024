@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Trials Application Form</title>
+</head>
+<body>
+    <h2>Cricket Trials Application Form</h2>
+
+    <form action="submit_trial_application.php" method="post">
+        <!-- Personal Information Section -->
+        <fieldset>
+            <legend>Personal Information</legend>
+
+            <label for="full-name">Full Name:</label>
+            <input type="text" id="full-name" name="full_name" required><br><br>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required><br><br>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required><br><br>
+
+            <label for="address">Address:</label><br>
+            <textarea id="address" name="address" rows="4" cols="40" required></textarea><br><br>
+        </fieldset>
+
+        <!-- Cricket Skills and Experience Section -->
+        <fieldset>
+            <legend>Cricket Skills and Experience</legend>
+
+            <label for="batting-style">Batting Style:</label>
+            <select id="batting-style" name="batting_style" required>
+                <option value="">Select</option>
+                <option value="right-handed">Right-handed</option>
+                <option value="left-handed">Left-handed</option>
+            </select><br><br>
+
+            <label for="bowling-style">Bowling Style:</label>
+            <select id="bowling-style" name="bowling_style" required>
+                <option value="">Select</option>
+                <option value="right-arm-fast">Right-arm Fast</option>
+                <option value="left-arm-fast">Left-arm Fast</option>
+                <option value="right-arm-spin">Right-arm Spin</option>
+                <option value="left-arm-spin">Left-arm Spin</option>
+            </select><br><br>
+
+            <label for="experience">Cricket Experience (in years):</label>
+            <input type="number" id="experience" name="experience" min="0" max="20" required><br><br>
+
+            <label for="highest-level">Highest Level Played:</label>
+            <select id="highest-level" name="highest_level" required>
+                <option value="">Select</option>
+                <option value="school">School</option>
+                <option value="district">District</option>
+                <option value="state">State</option>
+                <option value="national">National</option>
+            </select><br><br>
+        </fieldset>
+
+        <!-- Availability Section -->
+        <fieldset>
+            <legend>Trial Availability</legend>
+
+            <label for="available-dates">Available Dates for Trials:</label><br>
+            <input type="checkbox" id="date1" name="available_dates[]" value="2024-11-01">
+            <label for="date1">November 1, 2024</label><br>
+
+            <input type="checkbox" id="date2" name="available_dates[]" value="2024-11-02">
+            <label for="date2">November 2, 2024</label><br>
+
+            <input type="checkbox" id="date3" name="available_dates[]" value="2024-11-03">
+            <label for="date3">November 3, 2024</label><br><br>
+        </fieldset>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Apply for Trials">
+    </form>
+</body>
+</html>
