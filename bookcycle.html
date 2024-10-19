@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cycle Booking</title>
+</head>
+<body>
+    <h1>Book a Cycle</h1>
+
+    <form action="submit_cycle_booking.php" method="post">
+        <!-- Personal Information Section -->
+        <fieldset>
+            <legend>Personal Information</legend>
+
+            <label for="full-name">Full Name:</label>
+            <input type="text" id="full-name" name="full_name" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required><br><br>
+        </fieldset>
+
+        <!-- Cycle Booking Details Section -->
+        <fieldset>
+            <legend>Booking Details</legend>
+
+            <label for="cycle-type">Cycle Type:</label>
+            <select id="cycle-type" name="cycle_type" required>
+                <option value="">Select</option>
+                <option value="mountain">Mountain Bike</option>
+                <option value="road">Road Bike</option>
+                <option value="hybrid">Hybrid Bike</option>
+                <option value="electric">Electric Bike</option>
+            </select><br><br>
+
+            <label for="pickup-date">Pick-Up Date:</label>
+            <input type="date" id="pickup-date" name="pickup_date" required><br><br>
+
+            <label for="return-date">Return Date:</label>
+            <input type="date" id="return-date" name="return_date" required><br><br>
+
+            <label for="pickup-location">Pick-Up Location:</label>
+            <select id="pickup-location" name="pickup_location" required>
+                <option value="">Select</option>
+                <option value="location1">Downtown Station</option>
+                <option value="location2">Park Avenue</option>
+                <option value="location3">Main Street</option>
+            </select><br><br>
+
+            <label for="quantity">Number of Cycles:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="10" required><br><br>
+        </fieldset>
+
+        <!-- Additional Options Section -->
+        <fieldset>
+            <legend>Additional Options</legend>
+
+            <label for="helmet">Do you need a helmet?</label>
+            <input type="checkbox" id="helmet" name="helmet" value="yes"><br><br>
+
+            <label for="lock">Do you need a cycle lock?</label>
+            <input type="checkbox" id="lock" name="lock" value="yes"><br><br>
+        </fieldset>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Book Cycle">
+    </form>
+</body>
+</html>
