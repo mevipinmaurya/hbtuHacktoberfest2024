@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Medicine Booking</title>
+</head>
+<body>
+    <h1>Book Your Medicines Online</h1>
+
+    <form action="submit_medicine_booking.php" method="post">
+        <!-- Personal Information Section -->
+        <fieldset>
+            <legend>Personal Information</legend>
+
+            <label for="full-name">Full Name:</label>
+            <input type="text" id="full-name" name="full_name" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required><br><br>
+
+            <label for="address">Delivery Address:</label><br>
+            <textarea id="address" name="address" rows="4" cols="40" required></textarea><br><br>
+        </fieldset>
+
+        <!-- Medicine Booking Section -->
+        <fieldset>
+            <legend>Medicine Information</legend>
+
+            <label for="medicine-name">Medicine Name:</label>
+            <input type="text" id="medicine-name" name="medicine_name" required><br><br>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required><br><br>
+
+            <label for="dosage">Dosage (e.g., 500mg):</label>
+            <input type="text" id="dosage" name="dosage" required><br><br>
+
+            <label for="prescription">Upload Prescription (optional):</label>
+            <input type="file" id="prescription" name="prescription" accept="image/*,application/pdf"><br><br>
+        </fieldset>
+
+        <!-- Delivery Options Section -->
+        <fieldset>
+            <legend>Delivery Options</legend>
+
+            <label for="delivery-method">Delivery Method:</label>
+            <select id="delivery-method" name="delivery_method" required>
+                <option value="">Select</option>
+                <option value="standard">Standard Delivery (3-5 days)</option>
+                <option value="express">Express Delivery (1-2 days)</option>
+                <option value="same-day">Same Day Delivery</option>
+            </select><br><br>
+
+            <label for="delivery-date">Preferred Delivery Date:</label>
+            <input type="date" id="delivery-date" name="delivery_date" required><br><br>
+        </fieldset>
+
+        <!-- Payment Information Section -->
+        <fieldset>
+            <legend>Payment Information</legend>
+
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card_number" pattern="[0-9]{16}" required><br><br>
+
+            <label for="expiry-date">Expiry Date:</label>
+            <input type="month" id="expiry-date" name="expiry_date" required><br><br>
+
+            <label for="cvv">CVV:</label>
+            <input type="password" id="cvv" name="cvv" pattern="[0-9]{3}" required><br><br>
+        </fieldset>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Book Medicines">
+    </form>
+</body>
+</html>
+
