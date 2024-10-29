@@ -1,0 +1,31 @@
+import datetime
+import pytz
+def get_time_based_greeting(hour):
+    if 0 <= hour < 12:
+        return "Good morning"
+    elif 12 <= hour < 16:
+        return "Good afternoon"
+    elif 16 <= hour < 21:
+        return "Good evening"
+    elif 21 <= hour < 24:
+        return "Good night"
+    else:
+        return "It is an invalid time"
+def get_time_zone(place):
+    time_zones = {
+        "India": "Asia/Kolkata",
+        "Spain": "Europe/Madrid",
+        "France": "Europe/Paris",
+        "Germany": "Europe/Berlin",
+        "Japan": "Asia/Tokyo",
+        "USA": "America/New_York", 
+    }
+    return time_zones.get(place,"UTC")
+def get_local_hour(place):
+    time_zone = get_time_zone(place)
+    local_time = datetime.datetime.now(pytz.timezone(time_zone))
+    return local_time.hour
+user_place = "India" 
+local_hour = get_local_hour(user_place)
+time_greeting = get_time_based_greeting(local_hour)
+print(f"{time_greeting}, sir!")
