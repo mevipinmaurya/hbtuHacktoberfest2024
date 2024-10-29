@@ -1,0 +1,57 @@
+'''
+CLI QUESTION:
+
+Sunil's Configuration Adventure 💻✨
+
+Sunil, a new software developer, has been assigned a crucial task: setting up configuration files for a new project. But there's a twist—he's on a mission to organize and manage the files like a ninja! 🐱‍💻
+
+Help Sunil navigate the project folder, make key modifications, and keep everything organized. Ready? Let’s go!
+
+
+Folder Structure:
+
+project/
+│
+├── assets/
+│   ├── images/
+│   │   ├── logo.png
+│   │   └── banner.jpg
+│   └── styles/
+│       └── main.css
+│
+├── docs/
+│   ├── readme.txt
+│   └── changelog.txt
+│
+├── src/
+│   ├── app.js
+│   ├── config.js
+│   └── helpers.js
+│
+└── logs/
+    ├── error.log
+    └── access.log
+Instructions:
+Create a new folder named packages inside the project directory and a file named package.json inside the packages directory.
+Rewrite the config file (config.js) in the src folder so that it only contains the text "Configuration Files".
+Add a log entry to access.log present inside the logs folder, stating "End of Application Logs". (You have to append the given text to the file)
+Move the helpers file (helpers.js) into a new folder named helpers inside the project directory.
+Finally, delete the docs folder to clean up the project space. 🧹
+Each step you complete gets Sunil closer to becoming the code wizard of his team! 
+
+Note:
+
+Please make sure that you are right inside the project directory before running the code.
+Ignore the run file which is already present in the root directory.
+'''
+#SOLUTION AS FOLLOWS:
+
+mkdir project/packages
+mkdir project/helpers
+touch project/packages/package.json
+echo "Configuration Files" >  project/src/config.js
+echo "End of Application Logs" >> project/logs/access.log
+
+mv project/src/helpers.js project/helpers
+rm -r project/docs
+cd project
