@@ -17,7 +17,10 @@ def get_time_zone(place):
         "Spain": "Europe/Madrid",
         "France": "Europe/Paris",
         "Germany": "Europe/Berlin",
+        "Netherlands": "Europe/Amsterdam",
+        "Italy": "Europe/Rome",
         "Japan": "Asia/Tokyo",
+        "China": "Asia/Beijing",
         "USA": "America/New_York", 
     }
     return time_zones.get(place,"UTC")
