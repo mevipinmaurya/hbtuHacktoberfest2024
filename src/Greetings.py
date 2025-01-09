@@ -16,7 +16,12 @@ greetings = {    # this defines the greetings in english
     "gr": {   # this defines the greetings in greek
         "morning": "Καλημέρα",
         "afternoon": "Καλό απόγευμα",
-        "evening": "Καληνύχτα"
+        "evening": "Καλησπέρα"
+    },
+    "it": {   # this defines the greetings in italian
+        "morning": "Buongiorno",
+        "afternoon": "Buon Pomeriggio",
+        "evening": "Buonasera"
     }
 }
 
@@ -65,7 +70,8 @@ def change_language(): # defines the process to get user input on language type
     print("1. English")
     print("2. Hindi")
     print("3. Greek")
-    choice = input("Pick a number (1/2/3): ")
+    print("4. Italian")
+    choice = input("Pick a number (1/2/3/4): ")
 
     if choice == "1":
         return "en"
@@ -73,6 +79,8 @@ def change_language(): # defines the process to get user input on language type
         return "hi"
     elif choice == "3":
         return "gr"
+    elif choice == "4":
+        return "it"
     else:
         print("Not a valid option. Sticking with English.")
         return "en"
@@ -92,7 +100,7 @@ def display_menu(username, lang, timezone):
     while True:
         print("\nMenu:")
         print("1. Get Greeting")
-        print("2. Change Language (English/Hindi/Greek)")
+        print("2. Change Language (English/Hindi/Greek/Italian)")
         print("3. Change Time Zone")
         print("4. Add Greeting with Mutable Default Argument")
         print("5. Quit")
