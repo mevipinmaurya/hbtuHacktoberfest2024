@@ -78,8 +78,9 @@
 </header>
 
 <div class="search-container">
-    <input type="text" placeholder="Enter city name..." />
+    <button onclick="getWeather()">Get Weather for My Location</button>
 </div>
+
 
 <div class="weather-card">
     <h2>City Name</h2>
@@ -92,6 +93,33 @@
 <footer>
     <p>&copy; 2024 Weather App. All rights reserved.</p>
 </footer>
+<script>
+  async function getWeather() {
+    if (!navigator.geolocation) {
+      alert('Geolocation is not supported by your browser.');
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      const { latitude, longitude } = position.coords;
+      const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        document.querySelector('.weather-card h2').textContent = data.name;
+        document.querySelector('.weather-card p:nth-child(2)').textContent = `Temperature: ${data.main.temp}°C`;
+        document.querySelector('.weather-card p:nth-child(3)').textContent = `Condition: ${data.weather[0].description}`;
+        document.querySelector('.weather-card p:nth-child(4)').textContent = `Humidity: ${data.main.humidity}%`;
+        document.querySelector('.weather-card p:nth-child(5)').textContent = `Wind Speed: ${data.wind.speed} km/h`;
+      } catch (error) {
+        alert('Failed to fetch weather data.');
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
