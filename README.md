@@ -1,5 +1,5 @@
 🎉 Hacktoberfest 2025 - Join Us in Making a Difference! 🎉
-Welcome to Hacktoberfest2025! We're thrilled to participate in Hacktoberfest 2025 and invite you to contribute to our project. Whether you’re an experienced open-source contributor or just starting out, there’s something here for everyone!
+Welcome to hbtuHacktoberfest2024! We're thrilled to participate in Hacktoberfest 2025 and invite you to contribute to our project. Whether you’re an experienced open-source contributor or just starting out, there’s something here for everyone!
 
 🌟 About the Project
 [Insert a brief description of the project, its purpose, and significance. Highlight key goals, technology stack, and notable features.]
