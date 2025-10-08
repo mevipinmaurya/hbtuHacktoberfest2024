@@ -6,6 +6,8 @@
 
 Welcome to **hbtuHacktoberfest2025**! We’re thrilled to participate in Hacktoberfest 2025 and invite you to contribute to our project. Whether you’re an experienced open-source contributor or just starting out, there’s something here for everyone!  
 
+Give this repo a shiny Star ⭐⭐⭐⭐🌟🌟✨
+
 ---
 
 ## 🌟 About the Project
