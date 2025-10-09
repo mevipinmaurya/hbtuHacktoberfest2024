@@ -51,6 +51,11 @@ form.addEventListener('submit', function (e) {
     return;
   }
 
+  if (!isValidEmail(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
   if (password.length < 6) {
     alert('Password must be at least 6 characters long.');
     return;
@@ -61,3 +66,8 @@ form.addEventListener('submit', function (e) {
   strengthBar.style.width = '0%';
   strengthText.textContent = '';
 });
+
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  return emailRegex.test(email);
+}
