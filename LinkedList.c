@@ -1,6 +1,3 @@
-/*EXPERIMENT : 05
-Name : Shrusti Moon
-Roll no : UEC2024145
 
 Expt  : Develop  a program to create a single linked list using  dynamic memory allocation functions.
         Implement the following operation on the linked list.
@@ -426,3 +423,4 @@ Enter your choice: 7
 Exiting the Program...
 
 */
+
