@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Network Speed Indicator (CDN Demo)</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; }
+    .bg-green-500 { background-color: #22c55e; }
+    .bg-yellow-400 { background-color: #facc15; }
+    .bg-red-500 { background-color: #ef4444; }
+    .bg-gray-400 { background-color: #9ca3af; }
+    .bg-gray-300 { background-color: #d1d5db; }
+    .indicator { display:inline-flex; gap:8px; align-items:center; font-size:16px; }
+    .dot { width:12px; height:12px; border-radius:999px; display:inline-block; box-shadow:0 0 6px rgba(0,0,0,0.12); }
+  </style>
+
+  <!-- React + ReactDOM + Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <h2>🌐 Network Speed Indicator (CDN Demo)</h2>
+  <div id="root"></div>
+
+  <!-- Inline JSX app (type="text/babel" so Babel compiles it in browser) -->
+  <script type="text/babel">
+    const { useEffect, useState, useRef } = React;
+
+    const STATUS_META = {
+      Fast: { className: "bg-green-500", text: "Fast" },
+      Moderate: { className: "bg-yellow-400", text: "Moderate" },
+      Slow: { className: "bg-red-500", text: "Slow" },
+      Offline: { className: "bg-gray-400", text: "Offline" },
+      Unknown: { className: "bg-gray-300", text: "Unknown" },
+    };
+
+    function classifyFromConnection(conn) {
+      if (!navigator.onLine) return "Offline";
+      if (!conn) return "Unknown";
+      const { effectiveType, downlink, rtt } = conn;
+      if (effectiveType) {
+        if (effectiveType === "4g") return "Fast";
+        if (effectiveType === "3g") return "Moderate";
+        if (effectiveType === "2g" || effectiveType === "slow-2g") return "Slow";
+      }
+      if (typeof downlink === "number" && typeof rtt === "number") {
+        if (downlink >= 10 && rtt < 150) return "Fast";
+        if (downlink >= 1 && downlink < 10) return "Moderate";
+        return "Slow";
+      }
+      return "Unknown";
+    }
+
+    async function measurePing(timeoutMs = 3000) {
+      if (!navigator.onLine) return { time: Infinity, status: "Offline" };
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), timeoutMs);
+      const url = `${window.location.origin || window.location.href.split('#')[0]}?__speed_ping=${Date.now()}`;
+      const start = performance.now();
+      try {
+        const resp = await fetch(url, { method: "GET", cache: "no-store", signal: controller.signal });
+        await resp.text();
+        const time = performance.now() - start;
+        clearTimeout(id);
+        if (time < 150) return { time, status: "Fast" };
+        if (time < 400) return { time, status: "Moderate" };
+        return { time, status: "Slow" };
+      } catch (err) {
+        clearTimeout(id);
+        if (err.name === "AbortError") return { time: Infinity, status: "Slow" };
+        return { time: Infinity, status: "Offline" };
+      }
+    }
+
+    function NetworkSpeedIndicator({ pollInterval = 5000 }) {
+      const [status, setStatus] = useState(() => {
+        if (!navigator.onLine) return "Offline";
+        const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        return conn ? classifyFromConnection(conn) : "Unknown";
+      });
+      const pingRef = useRef(null);
+
+      useEffect(() => {
+        const updateFromConnection = () => {
+          const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+          if (conn) {
+            setStatus(prev => {
+              const newS = classifyFromConnection(conn);
+              return prev !== newS ? newS : prev;
+            });
+          } else {
+            measurePing().then(res => setStatus(res.status));
+          }
+        };
+
+        const onOnline = () => updateFromConnection();
+        const onOffline = () => setStatus("Offline");
+
+        window.addEventListener("online", onOnline);
+        window.addEventListener("offline", onOffline);
+
+        const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        if (conn && typeof conn.addEventListener === "function") {
+          conn.addEventListener("change", updateFromConnection);
+        }
+
+        if (!conn) {
+          pingRef.current = setInterval(async () => {
+            const res = await measurePing();
+            setStatus(res.status);
+          }, pollInterval);
+          measurePing().then(res => setStatus(res.status));
+        } else {
+          updateFromConnection();
+        }
+
+        return () => {
+          window.removeEventListener("online", onOnline);
+          window.removeEventListener("offline", onOffline);
+          if (conn && typeof conn.removeEventListener === "function") {
+            conn.removeEventListener("change", updateFromConnection);
+          }
+          if (pingRef.current) clearInterval(pingRef.current);
+        };
+      }, [pollInterval]);
+
+      const meta = STATUS_META[status] || STATUS_META.Unknown;
+      return (
+        <div className="indicator" role="status" aria-live="polite" title={`Network: ${meta.text}`}>
+          <span className={`dot ${meta.className}`} aria-hidden="true"></span>
+          <span>{meta.text}</span>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <p>Current network condition:</p>
+          <NetworkSpeedIndicator />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
