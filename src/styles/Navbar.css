@@ -1,3 +1,42 @@
+/* Focus mode styles */
+.focus-mode-active {
+  background: rgba(30, 32, 40, 0.95) !important;
+  transition: background 0.5s cubic-bezier(0.4,0,0.2,1);
+  min-height: 100vh;
+  z-index: 1000;
+}
+
+.focus-mode-hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+.focus-mode-main {
+  max-width: 900px !important;
+  margin: 3rem auto !important;
+  box-shadow: 0 0 40px 0 rgba(0,0,0,0.25);
+  background: #fff;
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  transition: box-shadow 0.5s, background 0.5s, padding 0.5s;
+}
+
+.focus-toggle {
+  margin-left: 1rem;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.focus-toggle.active {
+  background: #646778;
+  color: #fff;
+}
 /* Base styles */
 .navbar {
   background-color: #6e6ef2;
