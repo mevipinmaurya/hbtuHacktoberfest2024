@@ -1,0 +1,14 @@
+[
+  {
+    "keys": "Ctrl + S",
+    "description": "Save current document"
+  },
+  {
+    "keys": "Ctrl + P",
+    "description": "Open print dialog"
+  },
+  {
+    "keys": "?",
+    "description": "Open keyboard shortcuts helper"
+  }
+]
