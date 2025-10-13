@@ -1,22 +1,27 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
-import NotFound from "./NotFound";
-import GreetingClock from '../components/GreetingClock';
+import NotFound from "./pages/NotFound";
+import FunFact from "./components/FunFact";
 
-export default function App(){
+function App() {
   return (
-    <div style={{padding:20}}>
-      <header style={{display:'flex', justifyContent:'space-between', alignItems:'center', gap:12}}>
-        <h1 style={{margin:0,fontSize:18}}>My App</h1>
-        <GreetingClock />
-      </header>
+    <Routes>
+      {/* 👇 Home route */}
+      <Route
+        path="/"
+        element={
+          <div style={{ textAlign: "center", marginTop: "2rem" }}>
+            <h1>Welcome to HBTU Hacktoberfest!</h1>
+            <FunFact />
+          </div>
+        }
+      />
 
-      <main style={{marginTop:20}}>
-        <Routes>
-          {/* your other routes here */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
-    </div>
+      {/* 👇 Catch-all route */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
+
+export default App;
+

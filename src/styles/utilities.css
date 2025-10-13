@@ -1,0 +1,78 @@
+/*
+ * =============================================
+ * =            UTILITY CLASSES                =
+ * =============================================
+ */
+
+/*
+ * .sr-only
+ * Hides content visually but keeps it accessible to screen readers.
+ * Useful for providing context to assistive technologies.
+ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/*
+ * .stack
+ * Adds vertical spacing between direct children elements.
+ * Uses a CSS custom property `--stack-space` for configurable gaps.
+ */
+
+.stack > * + * {
+  margin-top: var(--stack-space, 1.5rem);
+}
+
+/*
+ * .grid-2
+ * Creates a responsive 2-column grid.
+ * Stacks to a single column on screens smaller than 768px.
+ */
+
+.grid-2 {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*
+ * .btn-sm
+ * A size modifier for a smaller button.
+ * Assumes a base .btn class exists.
+ */
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  background-color: #f0f0f0;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-sm {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Getting Started",
+    "description": "How to get started with the project.",
+    "tags": ["intro", "start", "setup"],
+    "url": "/getting-started.html"
+  },
+  {
+    "title": "Keyboard Shortcuts",
+    "description": "List of useful keyboard shortcuts.",
+    "tags": ["shortcuts", "accessibility"],
+    "url": "/shortcuts.html"
+  },
+  {
+    "title": "Deployment Guide",
+    "description": "Steps to deploy the app.",
+    "tags": ["deployment", "production"],
+    "url": "/deployment.html"
+  }
+]

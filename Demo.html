@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility CSS Demo</title>
+    <link rel="stylesheet" href="/hbtuHacktoberfest2025/src/styles/utilities.css">
+    <style>
+        /* Basic demo styling */
+        body { font-family: sans-serif; padding: 2rem; }
+        .demo-section { border: 1px solid #ddd; padding: 1.5rem; margin-bottom: 2rem; border-radius: 8px; }
+        h2 { margin-top: 0; }
+        .box { background-color: #f0f8ff; padding: 1rem; border: 1px solid #b0c4de; }
+    </style>
+</head>
+<body>
+
+    <h1>Utility CSS Classes Demo</h1>
+
+    <div class="demo-section">
+        <h2><code>.sr-only</code> (Screen Reader Only)</h2>
+        <p>This utility hides content visually but keeps it available for screen readers. Useful for accessibility.</p>
+        <a href="#">
+            Go to Cart
+            <span class="sr-only"> (3 items)</span>
+        </a>
+        <p>Visually, the link only says "Go to Cart". A screen reader will announce "Go to Cart (3 items)".</p>
+    </div>
+
+    <div class="demo-section">
+        <h2><code>.stack</code> (Vertical Spacing)</h2>
+        <p>This adds consistent vertical space between child elements.</p>
+        <div class="stack" style="--stack-space: 1rem;">
+            <div class="box">Item 1</div>
+            <div class="box">Item 2</div>
+            <div class="box">Item 3</div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2><code>.grid-2</code> (Responsive 2-Column Grid)</h2>
+        <p>This creates a 2-column layout on larger screens that stacks into a single column on smaller screens. Try resizing your browser</p>
+        <div class="grid-2">
+            <div class="box">Grid Column 1</div>
+            <div class="box">Grid Column 2</div>
+            <div class="box">Grid Column 3</div>
+            <div class="box">Grid Column 4</div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2><code>.btn-sm</code> (Small Button)</h2>
+        <p>A size modifier for creating smaller buttons.</p>
+        <button class="btn">Default Button</button>
+        <button class="btn btn-sm">Small Button</button>
+    </div>
+
+</body>
+</html>
