@@ -6,6 +6,7 @@ import FunFact from "../components/FunFact";
 import { FocusModeProvider, useFocusMode } from "../components/FocusModeContext";
 
 import Navbar from "../components/Navbar";
+import GreetingTimeWidget from '../components/GreetingTimeWidget';
 
 function MainAppRoutes() {
   const { focusMode } = useFocusMode();
@@ -23,6 +24,7 @@ function MainAppRoutes() {
           element={
             <div className={focusMode ? 'focus-mode-main' : ''} style={{ textAlign: "center", marginTop: "2rem" }}>
               <h1>Welcome to HBTU Hacktoberfest!</h1>
+              <GreetingTimeWidget />
               <FunFact />
             </div>
           }
