@@ -1,15 +1,15 @@
 '''
-Questino :-
+Question:
 
 In a bustling market town, Akash the young mathematician stumbled upon an ancient book in the attic of his grandfather's house. The book whispered of a forgotten magic, where printing prime numbers from a to b could reveal hidden truths. Determined to unlock its secrets, Alex scoured pages filled with dusty formulas until he cracked the code.
 User task:
 You are given a range of number from a to b (both inclusive) and you need to print all of the primes between a and b.
 A prime number is a number which have exacty two factors i.e. 1 and number itself.
 
-Note:-
+Note:
 This is a functional problem. You do not need to take any input. You just need to complete the function, and print the output.
 
-Input
+Input:
 First Line will contain an integer a representing the start of the range.
 Second Line will contain an integer b representing the end of the range.
 
