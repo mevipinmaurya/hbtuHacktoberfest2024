@@ -1,17 +1,18 @@
 {
   "name": "to-do-list",
   "version": "1.0.0",
-  "description": "# Are you excited to contribute under Hacktoberfest2022?😍",
+  "description": "A simple To-Do List application", 
   "main": "index.js",
   "scripts": {
+    "start": "node index.js", 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sheilaLygreWeitling/To-Do-List.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["todo", "list", "javascript", "node"],
+  "author": "Sheila Lygre Weitling",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sheilaLygreWeitling/To-Do-List/issues"
