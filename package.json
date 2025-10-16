@@ -1,37 +1,21 @@
 {
-  "name": "hbtuHacktoberfest2025",
+  "name": "to-do-list",
   "version": "1.0.0",
-  "description": "Open-source project for Hacktoberfest 2025 with React focus mode feature.",
-  "main": "src/pages/App.jsx",
+  "description": "# Are you excited to contribute under Hacktoberfest2022?😍",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
-    "react-router-dom": "^6.21.2"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sheilaLygreWeitling/To-Do-List.git"
   },
-  "keywords": [
-    "hacktoberfest",
-    "react",
-    "open-source"
-  ],
+  "keywords": [],
   "author": "",
-  "license": "MIT",
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sheilaLygreWeitling/To-Do-List/issues"
+  },
+  "homepage": "https://github.com/sheilaLygreWeitling/To-Do-List#readme",
+  "dependencies": {}
 }
