@@ -21,14 +21,17 @@ def get_time_zone(place):
         "Italy": "Europe/Rome",
         "Japan": "Asia/Tokyo",
         "China": "Asia/Beijing",
-        "USA": "America/New_York", 
+        "USA": "America/New_York",
+        "Brazil": "America/Sao_Paulo",
+        "South Africa": "Africa/Johannesburg" 
+
     }
     return time_zones.get(place,"UTC")
 def get_local_hour(place):
     time_zone = get_time_zone(place)
     local_time = datetime.datetime.now(pytz.timezone(time_zone))
     return local_time.hour
-user_place = "India" 
+user_place = "South Africa" 
 local_hour = get_local_hour(user_place)
 time_greeting = get_time_based_greeting(local_hour)
 print(f"{time_greeting}, sir!")
